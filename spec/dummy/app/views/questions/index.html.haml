@@ -1,0 +1,17 @@
+%h1 
+  Listing questions (
+  = link_to 'New Question', new_question_path
+  )
+%br
+%ul
+  - @questions.each do |question|
+    %li
+      (
+      = question.score
+      )
+      = question.title
+      (
+      = link_to "uVote", upvote_url(question), :method => :post
+      \/
+      = link_to "dVote", downvote_url(question), :method => :delete
+      )
