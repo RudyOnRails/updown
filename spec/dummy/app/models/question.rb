@@ -6,4 +6,6 @@ class Question < ActiveRecord::Base
 
   belongs_to :user
 
+  updown_able
+
 end

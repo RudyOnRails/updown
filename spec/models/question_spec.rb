@@ -5,7 +5,7 @@ describe "Question Model" do
     DatabaseCleaner.clean_with(:truncation)
     @ryan = FactoryGirl.create(:user, :username => 'ryan')
     @question = FactoryGirl.create(:question, :title => 'test question?')
-    @question.user = @user0
+    @question.user = @ryan
     @kevin = FactoryGirl.create(:user, :username => 'kevin')
     @matt = FactoryGirl.create(:user, :username => 'matt')
   end
@@ -33,5 +33,3 @@ describe "Question Model" do
     -> { FactoryGirl.create(:question, :title => "Why is the sky blue?") }.should raise_error(ActiveRecord::RecordInvalid)
   end
 end
-
-
